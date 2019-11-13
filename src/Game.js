@@ -7,11 +7,11 @@ let tableArr = [];
 let countRound = 0;
 for (var i = 0; i < 9; i++) tableArr[i] = { isUse: "false", player: 0 };
 
-export const Game = ({ data, InitCells }) => {
+export const Game = ({ setScore1, setScore2, children }) => {
   const [player, setPlayer] = useState(1);
   const [winner, setWinner] = useState("");
-  const [playerOneScore, setPlayerOneScore] = useState(0);
-  const [playerTwoScore, setPlayerTwoScore] = useState(0);
+  const playerLeft = children[0].props.children.props.name;
+  const playerRight = children[1].props.children.props.name;
 
   function renderSquare(e) {
     const cell = e.target.id;
@@ -21,9 +21,11 @@ export const Game = ({ data, InitCells }) => {
       tableArr[cell].isUse = "true";
       tableArr[cell].player = player;
 
-      player == 1 ? setPlayer(5) : setPlayer(1);
+      player === 1 ? setPlayer(5) : setPlayer(1);
 
-      checkWinner(tableArr, setWinner, setPlayerOneScore, countRound);
+      let winner = checkWinner(tableArr, setWinner, countRound,playerLeft,playerRight);
+      if (winner === 1) setScore1(old => old + 1);
+      if (winner === 2) setScore2(old => old + 1);
     } else {
       console.log("no");
     }
@@ -38,11 +40,10 @@ export const Game = ({ data, InitCells }) => {
       tableArr[i] = { isUse: "false", player: 0 };
     }
   }
-
   return (
     <div id="box">
       <div id="winner">
-        <h1 class="flashit">{winner}</h1>
+        <h1 className="flashit">{winner}</h1>
 
         {/* <h1 class="flashit">playerOneScore : {playerOneScore}</h1>
         <h1 class="flashit">playerTwoScore : {playerTwoScore}</h1> */}
@@ -70,6 +71,7 @@ export const Game = ({ data, InitCells }) => {
         {" "}
         Restart Game
       </button>
+      {children}
     </div>
   );
 };

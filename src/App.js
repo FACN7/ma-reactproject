@@ -4,41 +4,22 @@ import { Game } from "./Game";
 import { Avatar } from "./Avatar";
 import "./App.css";
 
-import "./App.css";
-// import fetchByName from "./helpers";
-
 function App() {
-  const [data, setData] = React.useState(null);
-  const [data2, setData2] = React.useState(null);
-
-  console.log(data);
-
-  // function fetchData(name) {
-  //   fetchByName(name).then(responsData =>
-  //     setData(oldResponseDate => responsData)
-  //   );
-  // }
+  const [score1, setScore1] = React.useState(0);
+  const [score2, setScore2] = React.useState(0);
+  const [p1, setP1] = React.useState("");
+  const [p2, setP2] = React.useState("");
 
   return (
-    <div class="container">
-      <div className="playerOne">
-        <Avatar id="player1" data={data} setData={setData} />
-        {data ? (
-          <img src={data.avatar_url}></img>
-        ) : (
-          <h1>"Please inter your Githup name"</h1>
-        )}
-      </div>
-      <div className="playerTwo">
-        <Avatar id="player2" data={data2} setData={setData2} />
-        {data2 ? (
-          <img src={data2.avatar_url}></img>
-        ) : (
-          <h1>"Please inter your Githup name"</h1>
-        )}
-      </div>
-
-      <Game data={data} />
+    <div className="container">
+      <Game setScore1={setScore1} setScore2={setScore2}>
+        <div className="playerOne">
+          <Avatar id="player1" score={score1} name={p1} setP={setP1} />
+        </div>
+        <div className="playerTwo">
+          <Avatar id="player2" score={score2} name={p2} setP={setP2} />
+        </div>
+      </Game>
     </div>
   );
 }
