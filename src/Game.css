@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: lightblue;
+}
+#table {
+  border: 1;
+  background-color: white;
+
+  border-bottom: 1px solid #ddd;
+  border-collapse: collapse;
+  background-color: white;
+  margin: 0px auto;
+}
+#table td:hover {
+  background-color: #f5f5f5;
+}
+
+td {
+  border: 2px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+}
+
+#reset_id {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  /*    -webkit-transition-duration: 0.4s;  Safari 
+    transition-duration: 0.4s;*/
+  position: absolute;
+  left: 50%;
+}
+#reset_id:hover {
+  background-color: black; /* Green */
+  color: white;
+}
+
+/* when player win  */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: arial, sans-serif;
+  background-color: #15242d;
+  height: 100%;
+  height: auto;
+  min-width: 100%;
+  width: auto;
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+}
+/* Flash class and keyframe animation */
+.flashit {
+  color: #f2f;
+  -webkit-animation: flash linear 1s infinite;
+  animation: flash linear 1s infinite;
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Pulse class and keyframe animation */
+.pulseit {
+  -webkit-animation: pulse linear 0.5s infinite;
+  animation: pulse linear 0.5s infinite;
+}
+@-webkit-keyframes pulse {
+  0% {
+    width: 200px;
+  }
+  50% {
+    width: 340px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+@keyframes pulse {
+  0% {
+    width: 200px;
+  }
+  50% {
+    width: 340px;
+  }
+  100% {
+    width: 200px;
+  }
+}

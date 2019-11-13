@@ -1,0 +1,67 @@
+import React from "react";
+import Search from "./Search";
+import { Game } from "./Game";
+
+import "./App.css";
+// import { fetchByName, duplicateData } from "./helpers";
+import { fetchByName } from "./helpers";
+
+
+function App() {
+  const [data, setData] = React.useState([]);
+  function fetchData(name) {
+    if (data.length == 10) setData([]);
+    [1, 2, 3, 4, 5].forEach(id => {
+      fetchByName(name).then(responsData =>
+        setData(oldResponseDate =>
+          oldResponseDate.concat(duplicateData(responsData.data, id))
+        )
+      );
+    });
+    setData(oldData => oldData.sort(() => Math.random() - 0.5));
+    console.log(data);
+  }
+
+  return (
+    <div>
+      <Search fetchData={fetchData} /> ;
+      <Game data={data} />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+   {/* {data.length
+        ? data.map(card => <img src={card.img} alt="" />)
+        : "no daata"} */}
+
+
+
+
+        export const Game = ({ data, InitCells }) => {
+  const [player, setPlayer] = useState({ player: "player1", color: "green" });
+
+  function renderSquare(e) {
+    const cell = e.target.id;
+    const found = game_track_arr.find(function(element) {
+      return element.cell == cell;
+    });
+    if (found == undefined) {
+      game_track_arr.push({ player, cell });
+      document.getElementById(cell).style.backgroundColor = player.color;
+
+      player.player === "player1"
+        ? setPlayer({ player: "player2", color: "red" })
+        : setPlayer({ player: "player1", color: "green" });
+
+      checkWinner();
+      console.log(player, game_track_arr);
+    } else {
+      console.log("no");
+    }
+  }
