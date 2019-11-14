@@ -7,28 +7,40 @@ let tableArr = [];
 let countRound = 0;
 for (var i = 0; i < 9; i++) tableArr[i] = { isUse: "false", player: 0 };
 
-export const Game = ({ setScore1, setScore2, children }) => {
+export const Game = ({ winner_name, setScore1, setScore2, children }) => {
   const [player, setPlayer] = useState(1);
   const [winner, setWinner] = useState("");
   const playerLeft = children[0].props.children.props.name;
   const playerRight = children[1].props.children.props.name;
+  //move winner name to App.js
+  winner_name(winner);
 
   function renderSquare(e) {
     const cell = e.target.id;
 
-    if (tableArr[cell].isUse == "false") {
+    if (tableArr[cell].isUse === "false") {
       countRound++;
       tableArr[cell].isUse = "true";
       tableArr[cell].player = player;
 
       player === 1 ? setPlayer(5) : setPlayer(1);
 
-      let winner = checkWinner(tableArr, setWinner, countRound,playerLeft,playerRight);
+      let winner = checkWinner(
+        tableArr,
+        setWinner,
+        countRound,
+        playerLeft,
+        playerRight
+      );
       if (winner === 1) setScore1(old => old + 1);
       if (winner === 2) setScore2(old => old + 1);
     } else {
       console.log("no");
     }
+  }
+  function resetScore() {
+    setScore1(0);
+    setScore2(0);
   }
 
   function resetGame() {
@@ -40,14 +52,9 @@ export const Game = ({ setScore1, setScore2, children }) => {
       tableArr[i] = { isUse: "false", player: 0 };
     }
   }
+
   return (
     <div id="box">
-      <div id="winner">
-        <h1 className="flashit">{winner}</h1>
-
-        {/* <h1 class="flashit">playerOneScore : {playerOneScore}</h1>
-        <h1 class="flashit">playerTwoScore : {playerTwoScore}</h1> */}
-      </div>
       <table border="2" id="table" onClick={e => renderSquare(e)}>
         <tbody>
           <tr>
@@ -71,6 +78,13 @@ export const Game = ({ setScore1, setScore2, children }) => {
         {" "}
         Restart Game
       </button>
+      <button id="reset_score_id" onClick={() => resetScore()}>
+        {" "}
+        Risit Score
+      </button>
+      <div id="winner">
+        <h1 className="flashit">{winner}</h1>
+      </div>
       {children}
     </div>
   );

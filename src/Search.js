@@ -10,6 +10,7 @@ function Search({ fetchData }) {
       <form>
         <input
           type="text"
+          placeholder="Github Name"
           name="name"
           value={name}
           onChange={collectInputName}
