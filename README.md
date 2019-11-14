@@ -1,6 +1,6 @@
 
 At this week we built the tic-tac toy game using raect if you are exited to try it go down follow the instructions and have fun.
-
+[OUR XO APP IS LIVE](https://eager-leavitt-0b92f2.netlify.com/);
 
 ![](https://media.giphy.com/media/liPWsOQDyLj7W/giphy.gif)
 
