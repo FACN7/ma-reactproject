@@ -12,6 +12,7 @@ export const Avatar = props => {
       if (responsData == "no such name") setFetch_error(error => true);
       else {
         setData(oldResponseDate => responsData);
+        setFetch_error(false);
         props.setP(name);
       }
     });
@@ -23,7 +24,11 @@ export const Avatar = props => {
       {fetch_error ? <h1>Sweet heart -No such user </h1> : <h1></h1>}
       {data ? (
         <div>
-          <img class="avatar_image" src={data.avatar_url} alt="profilepic" />
+          <img
+            className="avatar_image"
+            src={data.avatar_url}
+            alt="profilepic"
+          />
           <h1>{props.score}</h1>
         </div>
       ) : (
