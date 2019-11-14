@@ -22,12 +22,15 @@
 }
 
 .playerOne {
+  position: absolute;
   float: left;
   background-color: green;
 }
 
 .playerTwo {
   float: right;
+  position: absolute;
+  right: 0;
   background-color: brown;
 }
 
