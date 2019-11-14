@@ -26,7 +26,7 @@ function App() {
         <div className="playerOne">
           <Avatar id="player1" score={score1} name={p1} setP={setP1} />
         </div>
-      
+
         <div className="playerTwo">
           <Avatar id="player2" score={score2} name={p2} setP={setP2} />
         </div>

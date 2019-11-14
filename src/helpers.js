@@ -12,9 +12,7 @@ const checkResponse = response => {
 };
 
 export default function fetchByName(user_name) {
-  return fetch(
-    `https://api.github.com/users/${user_name}?access_token=${token}`
-  )
+  return fetch(`https://api.github.com/users/${user_name}`)
     .then(checkResponse)
 
     .catch(err => {
