@@ -1,12 +1,11 @@
 
-At this week we bulid the tic-tac toy game using raect if you are exited to try it go down and follow the instructions
-have fun.
+At this week we built the tic-tac toy game using raect if you are exited to try it go down follow the instructions and have fun.
 
 
 ![](https://media.giphy.com/media/liPWsOQDyLj7W/giphy.gif)
 
 
-## :floppy_disk:To start the project from your command line insert these instructions :
+## :floppy_disk: To start the project from your command line insert these instructions :
 
 ```d
 > git clone https://github.com/FACN7/ma-reactproject.git
@@ -18,7 +17,7 @@ have fun.
 
 ## :dart: GOALS:
 
-- [x] applying the ract main concepts .
+- [x] applying the react main concepts .
 
 - [x] Fetching.
 
