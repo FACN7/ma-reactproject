@@ -1,5 +1,5 @@
-// import { token } from "./token";
-const token = "b66a27caa6ad9aaa0e80eda197d282bb0005ad71";
+import { token } from "./token";
+// const token = "b66a27caa6ad9aaa0e80eda197d282bb0005ad71";
 const checkResponse = response => {
   if (response.status !== 200 && response.status !== 404) {
     console.log(`Error with the request! ${response.status}`);
